@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');
 const ejs = require('ejs');
 const _ = require('lodash');
 
-const PORT = process.env.PORT || 5000
+const PORT = 3000
 
 const app = express();
 
@@ -105,9 +105,10 @@ app.get('/skip', (req, res) => {
 });
 
 // module.exports = fromExpress(app);
-module.exports = Webtask.fromExpress(app);
+
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+module.exports = Webtask.fromExpress(app);
 
 // middleware functions
 
