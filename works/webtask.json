@@ -1,0 +1,20 @@
+{
+  "title": "Account Linking RFU",
+  "name": "account-linking-rfu",
+  "version": "1.0.0",
+  "preVersion": "0.1.0",
+  "author": "David Weston",
+  "useHashName": false,
+  "description": "This extension does account linking against a custom db",
+  "type": "application",
+  "docsUrl": "https://auth0.com/docs/extensions/authentication-api-debugger",
+  "logoUrl": "https://cdn.auth0.com/extensions/auth0-authentication-api-debugger/assets/logo.svg",
+  "repository": "https://github.com/auth0-extensions/auth0-authentication-api-debugger-extension",
+  "keywords": [
+    "auth0",
+    "extension"
+  ],
+  "auth0": {
+    "scopes": ""
+  }
+}
