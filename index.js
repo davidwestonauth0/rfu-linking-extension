@@ -108,12 +108,12 @@ module.exports = Webtask.fromExpress(app);
 
 function verifyInputToken(req, res, next) {
   const options = {
-    issuer: process.env.ISSUER,
-    audience: process.env.ISSUER
+    issuer: 'https://rfu-id.com',
+    audience: 'https://rfu-id.com'
   }
 
   try {
-    req.tokenPayload = jwt.verify(req.query.token, process.env.SECRET, options);
+    req.tokenPayload = jwt.verify(req.query.token, 'oauthplayground', options);
   } catch (err) {
     return next(err);
   }
