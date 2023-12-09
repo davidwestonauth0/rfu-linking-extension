@@ -21,7 +21,7 @@ app.post('/callback',  (req, res) => {
       console.log(req.body);
        const formData = _.omit(req.body, '_csrf');
       const HTML = renderReturnView({
-        action: `https://${process.env.AUTH0_DOMAIN}/continue?state=${req.session.state}`,
+        action: `https://rfu-id.com/continue?state=${req.session.state}`,
         formData
       });
 
@@ -49,12 +49,12 @@ app.get('/', verifyInputToken, csrfProtection, (req, res) => {
   };
 
     console.log(req.tokenPayload);
-    data.fields.email = req.tokenPayload[`${process.env.ISSUER}/claims/email`];
-    data.fields.connection = req.tokenPayload[`${process.env.ISSUER}/claims/connection`];
-    data.fields.client = req.tokenPayload[`${process.env.ISSUER}/claims/client`];
-    data.fields.domain = process.env.AUTH0_DOMAIN;
-    data.fields.clientID = process.env.AUTH0_CLIENT_ID;
-    data.fields.redirectUri = process.env.AUTH0_REDIRECT_URI;
+    data.fields.email = req.tokenPayload[`https://rfu-id.com/claims/email`];
+    data.fields.connection = req.tokenPayload[`https://rfu-id.com/claims/connection`];
+    data.fields.client = req.tokenPayload[`https://rfu-id.com/claims/client`];
+    data.fields.domain = 'auth.rfu-id.westondemos.co.uk';
+    data.fields.clientID = 'TuFPdtLRiLV2AhcXpumXRtxhCOJBzoaP';
+    data.fields.redirectUri = 'https://link-account.rfu-d.westondemos.co.uk/callback';
 
   const html = renderProfileView(data);
 
@@ -69,7 +69,7 @@ app.post('/', parseBody, csrfProtection, (req, res) => {
   // render form that auth-posts back to Auth0 with collected data
   const formData = _.omit(req.body, '_csrf');
   const HTML = renderReturnView({
-    action: `https://${process.env.AUTH0_DOMAIN}/continue?state=${req.session.state}`,
+    action: `https://auth.rfu-id.westondemos.co.uk/continue?state=${req.session.state}`,
     formData
   });
 
@@ -86,7 +86,7 @@ app.get('/skip', (req, res) => {
   // render form that auth-posts back to Auth0 with collected data
   const formData = _.omit({skip: true, connection: req.query.connection}, '_csrf');
   const HTML = renderReturnView({
-    action: `https://${process.env.AUTH0_DOMAIN}/continue?state=${req.session.state}`,
+    action: `https://auth.rfu-id.westondemos.co.uk/continue?state=${req.session.state}`,
     formData
   });
 
