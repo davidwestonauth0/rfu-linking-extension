@@ -34,7 +34,7 @@ app.post('/callback',  (req, res) => {
 
 });
 
-app.get('/', verifyInputToken, csrfProtection, (req, res) => {
+app.get('/', verifyInputToken, (req, res) => {
   // get required fields from JWT passed from Auth0 rule
   // store data in session that needs to survive the POST
   req.session.subject = req.tokenPayload.sub;
@@ -64,7 +64,7 @@ app.get('/', verifyInputToken, csrfProtection, (req, res) => {
 
 const parseBody = bodyParser.urlencoded({ extended: false });
 
-app.post('/', parseBody, csrfProtection, (req, res) => {
+app.post('/', parseBody, (req, res) => {
 
   // render form that auth-posts back to Auth0 with collected data
   const formData = _.omit(req.body, '_csrf');
