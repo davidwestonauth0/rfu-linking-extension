@@ -3,7 +3,6 @@
 const express = require('express');
 var Webtask = require('webtask-tools');
 const bodyParser = require('body-parser');
-const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const moment = require('moment');
 const jwt = require('jsonwebtoken');
@@ -14,11 +13,6 @@ const PORT = 3000;
 
 const app = express();
 
-app.use(cookieSession({
-  name: 'session',
-  secret: 'shhh...',
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
-}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
