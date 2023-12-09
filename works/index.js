@@ -15,7 +15,6 @@ const app = express();
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json());
 
 const csrfProtection = csurf();
 
