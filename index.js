@@ -1,6 +1,7 @@
 'use latest';
 
 const express = require('express');
+const session = require('express-session');
 var Webtask = require('webtask-tools');
 const bodyParser = require('body-parser');
 const csurf = require('csurf');
@@ -13,6 +14,13 @@ const PORT = 3000;
 
 const app = express();
 
+app.use(session({
+  secret: 'shhh...',
+  resave: false,
+  saveUninitialized: true,
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  cookie: { secure: true }
+}))
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const csrfProtection = csurf();
