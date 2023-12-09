@@ -50,7 +50,6 @@ app.get('/', verifyInputToken, (req, res) => {
   // render the profile form
   const data = {
     subject: req.tokenPayload.sub,
-    csrfToken: req.csrfToken(),
     fields: {},
     action: req.originalUrl.split('?')[0]
   };
